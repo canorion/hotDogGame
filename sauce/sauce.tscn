@@ -1,0 +1,117 @@
+[gd_scene load_steps=11 format=3 uid="uid://b38ymv2sl5gg5"]
+
+[ext_resource type="Script" path="res://sauce/sauce.gd" id="1_8r754"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_denj0"]
+load_path = "res://.godot/imported/sauce.png-3f55fdeb23c80ee07e7ce2e09890b213.ctex"
+
+[sub_resource type="Animation" id="Animation_l337l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_k5mxv"]
+resource_name = "pour"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bo6x2"]
+_data = {
+"RESET": SubResource("Animation_l337l"),
+"pour": SubResource("Animation_k5mxv")
+}
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6pj23"]
+load_path = "res://.godot/imported/sauce.png-3f55fdeb23c80ee07e7ce2e09890b213.ctex"
+
+[sub_resource type="Animation" id="Animation_dhvug"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_icy1j"]
+resource_name = "pour"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [3, 4, 5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kg15t"]
+_data = {
+"RESET": SubResource("Animation_dhvug"),
+"pour": SubResource("Animation_icy1j")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dimqa"]
+size = Vector2(48, 13)
+
+[node name="Sauce" type="Node2D"]
+script = ExtResource("1_8r754")
+
+[node name="Mustard" type="Sprite2D" parent="."]
+texture = SubResource("CompressedTexture2D_denj0")
+hframes = 3
+vframes = 2
+
+[node name="Animation" type="AnimationPlayer" parent="Mustard"]
+autoplay = "pour"
+libraries = {
+"": SubResource("AnimationLibrary_bo6x2")
+}
+
+[node name="Ketchup" type="Sprite2D" parent="."]
+texture = SubResource("CompressedTexture2D_6pj23")
+hframes = 3
+vframes = 2
+
+[node name="Animation" type="AnimationPlayer" parent="Ketchup"]
+autoplay = "pour"
+libraries = {
+"": SubResource("AnimationLibrary_kg15t")
+}
+
+[node name="Collision" type="Area2D" parent="."]
+
+[node name="Shape" type="CollisionShape2D" parent="Collision"]
+position = Vector2(-24, 0.5)
+shape = SubResource("RectangleShape2D_dimqa")

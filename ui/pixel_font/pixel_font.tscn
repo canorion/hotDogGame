@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://04do4388d38e"]
+
+[ext_resource type="FontFile" uid="uid://c10beo4ufs6s5" path="res://ui/fonts/pixel_nes/pixel_nes.otf" id="1_8eq2n"]
+
+[node name="PixelFont" type="Label"]
+theme_override_fonts/font = ExtResource("1_8eq2n")
+text = "Pixel Font"

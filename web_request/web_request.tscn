@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgq0jy1yxwlv2"]
+
+[ext_resource type="Script" path="res://web_request/web_request.gd" id="1_vcl1w"]
+
+[node name="WebRequest" type="Node"]
+script = ExtResource("1_vcl1w")
+
+[node name="PlayerCountRequest" type="HTTPRequest" parent="."]
