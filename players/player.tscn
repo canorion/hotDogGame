@@ -6,27 +6,6 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yoslt"]
 size = Vector2(6, 6)
 
-[sub_resource type="Animation" id="Animation_mrag8"]
-resource_name = "stand"
-loop_mode = 1
-
-[sub_resource type="Animation" id="Animation_d8je3"]
-resource_name = "run"
-length = 0.4
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [2, 3, 4, 3]
-}
-
 [sub_resource type="Animation" id="Animation_frq3v"]
 length = 0.001
 tracks/0/type = "value"
@@ -82,6 +61,39 @@ tracks/1/keys = {
 "values": [Vector2(-1, -17), Vector2(-1, -36), Vector2(-1, -17)]
 }
 
+[sub_resource type="Animation" id="Animation_d8je3"]
+resource_name = "run"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [2, 3, 4, 3]
+}
+
+[sub_resource type="Animation" id="Animation_mrag8"]
+resource_name = "stand"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7pu02"]
 _data = {
 "RESET": SubResource("Animation_frq3v"),
@@ -106,10 +118,10 @@ frame = 2
 shape = SubResource("RectangleShape2D_yoslt")
 
 [node name="Animation" type="AnimationPlayer" parent="."]
-autoplay = "run"
 libraries = {
 "": SubResource("AnimationLibrary_7pu02")
 }
+autoplay = "stand"
 
 [node name="Area" type="Area2D" parent="."]
 

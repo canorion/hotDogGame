@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://crtvg26vtmmd6"]
+[gd_scene load_steps=13 format=3 uid="uid://crtvg26vtmmd6"]
 
 [ext_resource type="Script" path="res://stage.gd" id="1_whnir"]
 [ext_resource type="Texture2D" uid="uid://cv012dshwa4pr" path="res://background.png" id="2_r1fgd"]
 [ext_resource type="PackedScene" uid="uid://c2tgtmrtauuu3" path="res://hotdog/hotdog.tscn" id="3_5hlda"]
+[ext_resource type="AudioStream" uid="uid://0bosboyck83m" path="res://sound/music.mp3" id="3_c1ykx"]
 [ext_resource type="PackedScene" uid="uid://04do4388d38e" path="res://ui/pixel_font/pixel_font.tscn" id="4_57fa6"]
 [ext_resource type="PackedScene" uid="uid://uxm3rccpm0uc" path="res://players/player.tscn" id="5_cvkhf"]
 
@@ -44,6 +45,42 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector2(480, 90)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Background4:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(480, 90)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Background5:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(800, 90)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Background6:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1120, 90)]
+}
 
 [sub_resource type="Animation" id="Animation_2722p"]
 resource_name = "move"
@@ -58,7 +95,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-160, 90), Vector2(-480, 90)]
+"values": [Vector2(-480, 90), Vector2(-800, 90)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -70,7 +107,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(160, 90), Vector2(-160, 90)]
+"values": [Vector2(-160, 90), Vector2(-480, 90)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -82,7 +119,43 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
+"values": [Vector2(160, 90), Vector2(-160, 90)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Background4:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
 "values": [Vector2(480, 90), Vector2(160, 90)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Background5:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(800, 90), Vector2(480, 90)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Background6:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1120, 90), Vector2(800, 90)]
 }
 
 [sub_resource type="Animation" id="Animation_hlvdk"]
@@ -97,7 +170,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-160, 90)]
+"values": [Vector2(-480, 90)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -109,7 +182,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(160, 90)]
+"values": [Vector2(-160, 90)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -121,7 +194,43 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
+"values": [Vector2(160, 90)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Background4:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
 "values": [Vector2(480, 90)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Background5:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(800, 90)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Background6:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1120, 90)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v8p2k"]
@@ -129,6 +238,44 @@ _data = {
 "RESET": SubResource("Animation_fhu3r"),
 "move": SubResource("Animation_2722p"),
 "stop": SubResource("Animation_hlvdk")
+}
+
+[sub_resource type="Animation" id="Animation_awdc3"]
+resource_name = "start"
+length = 4.1
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 4.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"values": [{
+"args": ["3"],
+"method": &"set_start_text"
+}, {
+"args": ["2"],
+"method": &"set_start_text"
+}, {
+"args": ["1"],
+"method": &"set_start_text"
+}, {
+"args": ["Go!"],
+"method": &"set_start_text"
+}, {
+"args": [""],
+"method": &"set_start_text"
+}, {
+"args": [],
+"method": &"start_running"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bchgw"]
+_data = {
+"start": SubResource("Animation_awdc3")
 }
 
 [node name="Stage" type="Node2D"]
@@ -148,12 +295,28 @@ texture = ExtResource("2_r1fgd")
 position = Vector2(480, 90)
 texture = ExtResource("2_r1fgd")
 
+[node name="Background4" type="Sprite2D" parent="Background"]
+position = Vector2(480, 90)
+texture = ExtResource("2_r1fgd")
+
+[node name="Background5" type="Sprite2D" parent="Background"]
+position = Vector2(800, 90)
+texture = ExtResource("2_r1fgd")
+
+[node name="Background6" type="Sprite2D" parent="Background"]
+position = Vector2(1120, 90)
+texture = ExtResource("2_r1fgd")
+
 [node name="Animation" type="AnimationPlayer" parent="Background"]
 root_node = NodePath("../Background1")
-autoplay = "move"
 libraries = {
 "": SubResource("AnimationLibrary_v8p2k")
 }
+autoplay = "stop"
+
+[node name="Music" type="AudioStreamPlayer" parent="Background"]
+stream = ExtResource("3_c1ykx")
+autoplay = true
 
 [node name="Hotdog" parent="." instance=ExtResource("3_5hlda")]
 position = Vector2(273, 118)
@@ -162,9 +325,10 @@ position = Vector2(273, 118)
 
 [node name="Container" type="Control" parent="UI"]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 320.0
+anchors_preset = 10
+anchor_right = 1.0
 offset_bottom = 180.0
+grow_horizontal = 2
 
 [node name="HomeText" parent="UI/Container" instance=ExtResource("4_57fa6")]
 layout_mode = 0
@@ -173,6 +337,28 @@ offset_top = 2.0
 offset_right = 122.0
 offset_bottom = 25.0
 text = "HOME"
+
+[node name="StartText" parent="UI/Container" instance=ExtResource("4_57fa6")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -89.0
+offset_right = 159.0
+offset_bottom = 89.0
+text = ""
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Animation" type="AnimationPlayer" parent="UI/Container/StartText"]
+root_node = NodePath("../../../..")
+libraries = {
+"": SubResource("AnimationLibrary_bchgw")
+}
+autoplay = "start"
 
 [node name="HomeCount" parent="UI/Container" instance=ExtResource("4_57fa6")]
 layout_mode = 0
@@ -183,20 +369,27 @@ offset_bottom = 43.0
 text = "0 Players"
 
 [node name="AwayText" parent="UI/Container" instance=ExtResource("4_57fa6")]
-layout_mode = 0
-offset_left = 198.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -122.0
 offset_top = 2.0
-offset_right = 316.0
+offset_right = -4.0
 offset_bottom = 25.0
 text = "AWAY"
 horizontal_alignment = 2
 
 [node name="AwayCount" parent="UI/Container" instance=ExtResource("4_57fa6")]
-layout_mode = 0
-offset_left = 186.0
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -134.0
 offset_top = 20.0
-offset_right = 316.0
+offset_right = -4.0
 offset_bottom = 43.0
+grow_horizontal = 0
 text = "0 Players"
 horizontal_alignment = 2
 
@@ -205,3 +398,6 @@ position = Vector2(64, 104)
 
 [node name="AwayPlayer" parent="." instance=ExtResource("5_cvkhf")]
 position = Vector2(64, 134)
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2(160, 90)

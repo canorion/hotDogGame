@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://b38ymv2sl5gg5"]
+[gd_scene load_steps=13 format=3 uid="uid://b38ymv2sl5gg5"]
 
 [ext_resource type="Script" path="res://sauce/sauce.gd" id="1_8r754"]
+[ext_resource type="AudioStream" uid="uid://b7uyle2rb0uh0" path="res://sound/sauce.mp3" id="2_vv0ek"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_denj0"]
 load_path = "res://.godot/imported/sauce.png-3f55fdeb23c80ee07e7ce2e09890b213.ctex"
@@ -85,6 +86,13 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dimqa"]
 size = Vector2(48, 13)
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_uaxhj"]
+random_pitch = 2.36
+random_volume_offset_db = 2.03
+streams_count = 1
+stream_0/stream = ExtResource("2_vv0ek")
+stream_0/weight = 1.0
+
 [node name="Sauce" type="Node2D"]
 script = ExtResource("1_8r754")
 
@@ -94,10 +102,10 @@ hframes = 3
 vframes = 2
 
 [node name="Animation" type="AnimationPlayer" parent="Mustard"]
-autoplay = "pour"
 libraries = {
 "": SubResource("AnimationLibrary_bo6x2")
 }
+autoplay = "pour"
 
 [node name="Ketchup" type="Sprite2D" parent="."]
 texture = SubResource("CompressedTexture2D_6pj23")
@@ -105,13 +113,17 @@ hframes = 3
 vframes = 2
 
 [node name="Animation" type="AnimationPlayer" parent="Ketchup"]
-autoplay = "pour"
 libraries = {
 "": SubResource("AnimationLibrary_kg15t")
 }
+autoplay = "pour"
 
 [node name="Collision" type="Area2D" parent="."]
 
 [node name="Shape" type="CollisionShape2D" parent="Collision"]
 position = Vector2(-24, 0.5)
 shape = SubResource("RectangleShape2D_dimqa")
+
+[node name="Sound" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_uaxhj")
+autoplay = true

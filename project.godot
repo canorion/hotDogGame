@@ -12,18 +12,25 @@ config_version=5
 
 config/name="Hotdog Game"
 run/main_scene="res://start.tscn"
-config/features=PackedStringArray("4.1", "GL Compatibility")
+config/features=PackedStringArray("4.2", "GL Compatibility")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 config/icon="res://icon.svg"
 
 [autoload]
 
 WebRequest="*res://web_request/web_request.tscn"
+WebListener="*res://web_listener/web_listener.tscn"
 
 [display]
 
 window/size/viewport_width=320
 window/size/viewport_height=180
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
+[editor_plugins]
+
+enabled=PackedStringArray()
 
 [importer_defaults]
 
@@ -33,6 +40,7 @@ font_data_dynamic={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 environment/defaults/default_clear_color=Color(0, 0, 0, 1)

@@ -68,7 +68,7 @@ hframes = 3
 frame = 1
 
 [node name="Animation" type="AnimationPlayer" parent="."]
-autoplay = "run"
 libraries = {
 "": SubResource("AnimationLibrary_1aeas")
 }
+autoplay = "stand"

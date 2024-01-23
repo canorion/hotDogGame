@@ -29,3 +29,11 @@ func _on_area_entered(area):
 		return
 	
 	anim.play("jump")
+
+
+func start_running():
+	$Animation.play("run")
+
+
+func stop_running():
+	$Animation.play("stand")

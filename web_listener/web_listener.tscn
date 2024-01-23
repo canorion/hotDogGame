@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://da1qceri1c0uh"]
+
+[ext_resource type="Script" path="res://web_listener/web_listener.gd" id="1_imwfx"]
+
+[node name="WebListener" type="Node"]
+script = ExtResource("1_imwfx")
