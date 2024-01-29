@@ -12,6 +12,9 @@ var max_seconds = 60
 var frame_offset = 3
 var time_passed_timer = Timer.new()
 
+var min_wait_time = 2
+var max_wait_time = 10
+
 
 func _ready():
 	sauce_timer.one_shot = true
@@ -26,6 +29,13 @@ func _ready():
 	_generate_sauce_frames()
 
 
+func get_sauce_frames():
+	return {
+		"start_time": Time.get_unix_time_from_system(),
+		"frames": sauce_frames,
+	}
+
+
 func _generate_sauce_frames():
 	var current_seconds = 0
 	
@@ -33,14 +43,22 @@ func _generate_sauce_frames():
 		var rand_wait_time = _get_random_wait_time()
 		current_seconds += rand_wait_time
 		
+		_lower_max_wait_time()
+		
 		if (current_seconds + rand_wait_time) < (max_seconds - frame_offset):
 			sauce_frames.push_back(current_seconds)
 	
 	max_sauce_frame = sauce_frames.size()
 
 
+func _lower_max_wait_time():
+	max_wait_time -= 0.5
+	if max_wait_time <= min_wait_time + 1:
+		max_wait_time = min_wait_time + 1
+
+
 func _get_random_wait_time():
-	return random.randf_range(2, 5)
+	return random.randf_range(min_wait_time, max_wait_time)
 
 
 func _on_sauce_timer_timeout():

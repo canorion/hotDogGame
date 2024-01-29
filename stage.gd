@@ -9,6 +9,8 @@ var away_player_count = 0
 
 
 func _ready():
+	WebListener.js_message_arrived.connect(_on_js_message_arrived)
+	
 	$Hotdog.run_completed.connect(_on_run_completed)
 	
 	#WebRequest.request_player_count()
@@ -22,6 +24,19 @@ func _ready():
 	
 	$HomePlayer.init_as_home()
 	$AwayPlayer.init_as_away()
+
+
+func _on_js_message_arrived(msg_dict):
+	if msg_dict.message == "ready":
+		$UI/Container/StartText/Animation.play("start")
+
+
+func _unhandled_input(event):
+	#if not OS.has_feature("pc"):
+		#return
+	if event is InputEventKey:
+		if event.pressed and event.keycode == KEY_ENTER:
+			$UI/Container/StartText/Animation.play("start")
 
 
 func set_player_counts(home, away):
@@ -41,6 +56,9 @@ func start_running():
 	$HomePlayer.start_running()
 	$AwayPlayer.start_running()
 	$Background/Animation.play("move")
+	
+	# Send frame data and game start time with a request
+	#$Hotdog.get_sauce_frames()
 
 
 func stop_running():
