@@ -22,7 +22,7 @@ func _ready():
 
 
 func _process(delta):
-	position.x -= delta * 512
+	position.x -= delta * 320
 
 
 func _on_timer_timeout():

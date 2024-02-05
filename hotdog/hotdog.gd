@@ -8,12 +8,12 @@ var sauce_timer = Timer.new()
 var sauce_frames = []
 var current_sauce_frame = 0
 var max_sauce_frame = 0
-var max_seconds = 60
+var max_seconds = 40
 var frame_offset = 3
 var time_passed_timer = Timer.new()
 
-var min_wait_time = 2
-var max_wait_time = 10
+var min_wait_time = 1.7
+var max_wait_time = 6
 
 
 func _ready():

@@ -6,3 +6,5 @@
 script = ExtResource("1_vcl1w")
 
 [node name="PlayerCountRequest" type="HTTPRequest" parent="."]
+
+[node name="TimeInfoRequest" type="HTTPRequest" parent="."]

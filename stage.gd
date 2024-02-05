@@ -7,23 +7,40 @@ var away_player_count = 0
 @onready var home_count_text = $UI/Container/HomeCount
 @onready var away_count_text = $UI/Container/AwayCount
 
+var score_timer = Timer.new()
+
 
 func _ready():
 	WebListener.js_message_arrived.connect(_on_js_message_arrived)
 	
 	$Hotdog.run_completed.connect(_on_run_completed)
 	
-	#WebRequest.request_player_count()
-	#var req = await WebRequest.player_count_request.request_completed
-	#var player_counts = JSON.parse_string(req[3].get_string_from_utf8())
-	var player_counts = {
-		"home": 10,
-		"away": 10,
-	}
-	set_player_counts(player_counts.home, player_counts.away)
+	score_timer.wait_time = 3
+	score_timer.timeout.connect(_on_score_timer_timeout)
+	add_child(score_timer)
 	
 	$HomePlayer.init_as_home()
 	$AwayPlayer.init_as_away()
+
+
+func _on_score_timer_timeout():
+	_update_scores()
+
+
+func _update_scores():
+	#WebRequest.request_player_count()
+	#var req = await WebRequest.player_count_request.request_completed
+	#var player_counts_json = JSON.parse_string(req[3].get_string_from_utf8())
+	var player_counts = {
+		"home": 10,
+		"away": 10,
+		"win_info": "",
+	}
+	
+	set_player_counts(player_counts.home, player_counts.away)
+	
+	if player_counts.win_info != "":
+		$UI/Container/StartText.text = str(player_counts.win_info) + " wins!"
 
 
 func _on_js_message_arrived(msg_dict):
@@ -57,8 +74,8 @@ func start_running():
 	$AwayPlayer.start_running()
 	$Background/Animation.play("move")
 	
-	# Send frame data and game start time with a request
-	#$Hotdog.get_sauce_frames()
+	#WebRequest.request_time_info($Hotdog.get_sauce_frames())
+	score_timer.start()
 
 
 func stop_running():
@@ -66,6 +83,8 @@ func stop_running():
 	$HomePlayer.stop_running()
 	$AwayPlayer.stop_running()
 	$Background/Animation.play("stop")
+	
+	score_timer.stop()
 
 
 func _on_run_completed():
