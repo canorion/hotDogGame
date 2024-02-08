@@ -7,8 +7,12 @@ var away_player_count = 0
 @onready var home_count_text = $UI/Container/HomeCount
 @onready var away_count_text = $UI/Container/AwayCount
 
+@onready var color_overlay = $UI/Container/ColorOverlay
+@onready var qr_code = $UI/Container/QRCode
+
 var score_timer = Timer.new()
 var ready_timer = Timer.new()
+var end_timer = Timer.new()
 
 var game_id = ""
 
@@ -21,27 +25,29 @@ func _ready():
 	score_timer.wait_time = 3
 	score_timer.timeout.connect(_on_score_timer_timeout)
 	add_child(score_timer)
+	score_timer.start()
 	
 	ready_timer.wait_time = 3
 	ready_timer.timeout.connect(_on_ready_timer_timeout)
-	ready_timer.one_shot = false
 	add_child(ready_timer)
 	ready_timer.start()
 	
+	end_timer.wait_time = 3
+	end_timer.timeout.connect(_on_end_timer_timeout)
+	add_child(end_timer)
+	
 	$HomePlayer.init_as_home()
 	$AwayPlayer.init_as_away()
-	
-	var sauce_frames = $Hotdog.get_sauce_frames()
-	var frames = ""
-	for i in sauce_frames.frames.size():
-		frames += str(sauce_frames.frames[i])
-		if i < sauce_frames.frames.size() - 1:
-			frames += ","
-	
-	WebRequest.request_time_info({
-		"gameId": game_id,
-		"timeData": frames,
-	})
+
+
+func _on_end_timer_timeout():
+	return
+	WebRequest.request_end()
+	var req = await WebRequest.end_request.request_completed
+	var end_json = JSON.parse_string(req[3].get_string_from_utf8())
+
+	#if ready_json.data[0].has("_id"):
+	#	end_timer.stop()
 
 
 func _on_ready_timer_timeout():
@@ -52,6 +58,18 @@ func _on_ready_timer_timeout():
 	if ready_json.data[0].has("_id"):
 		game_id = ready_json.data[0]._id
 		ready_timer.stop()
+		
+		var sauce_frames = $Hotdog.get_sauce_frames()
+		var frames = ""
+		for i in sauce_frames.frames.size():
+			frames += str(sauce_frames.frames[i])
+			if i < sauce_frames.frames.size() - 1:
+				frames += ","
+		
+		WebRequest.request_time_info({
+			"gameId": game_id,
+			"timeData": frames,
+		})
 
 
 func _on_score_timer_timeout():
@@ -88,7 +106,8 @@ func _unhandled_input(event):
 	if event is InputEventKey:
 		if event.pressed and event.keycode == KEY_ENTER:
 			$UI/Container/StartText/Animation.play("start")
-
+			qr_code.visible = false
+			color_overlay.visible = false
 
 func set_player_counts(home, away):
 	home_player_count = home
@@ -107,8 +126,6 @@ func start_running():
 	$HomePlayer.start_running()
 	$AwayPlayer.start_running()
 	$Background/Animation.play("move")
-	
-	score_timer.start()
 
 
 func stop_running():
@@ -118,6 +135,9 @@ func stop_running():
 	$Background/Animation.play("stop")
 	
 	score_timer.stop()
+	end_timer.start()
+	
+	color_overlay.visible = true
 
 
 func _on_run_completed():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://crtvg26vtmmd6"]
+[gd_scene load_steps=21 format=3 uid="uid://crtvg26vtmmd6"]
 
 [ext_resource type="Script" path="res://stage.gd" id="1_whnir"]
 [ext_resource type="Texture2D" uid="uid://cv012dshwa4pr" path="res://background.png" id="2_r1fgd"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://04do4388d38e" path="res://ui/pixel_font/pixel_font.tscn" id="4_57fa6"]
 [ext_resource type="Texture2D" uid="uid://coidoxvdux75o" path="res://background-sign.png" id="4_rgdjb"]
 [ext_resource type="PackedScene" uid="uid://uxm3rccpm0uc" path="res://players/player.tscn" id="5_cvkhf"]
+[ext_resource type="Texture2D" uid="uid://1oc2gouoeufo" path="res://ui/qr/start_qr.png" id="7_uiu1w"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a141y"]
 atlas = ExtResource("2_r1fgd")
@@ -516,7 +517,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "values": [{
-"args": ["Please wait..."],
+"args": ["Please scan the QR Code and wait."],
 "method": &"set_start_text"
 }]
 }
@@ -678,28 +679,6 @@ offset_right = 122.0
 offset_bottom = 40.0
 text = "HOME"
 
-[node name="StartText" parent="UI/Container" instance=ExtResource("4_57fa6")]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -160.0
-offset_top = -70.0
-offset_right = 159.0
-offset_bottom = 89.0
-text = ""
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Animation" type="AnimationPlayer" parent="UI/Container/StartText"]
-root_node = NodePath("../../../..")
-libraries = {
-"": SubResource("AnimationLibrary_bchgw")
-}
-autoplay = "ready"
-
 [node name="HomeCount" parent="UI/Container" instance=ExtResource("4_57fa6")]
 layout_mode = 0
 offset_left = 4.0
@@ -732,6 +711,55 @@ offset_bottom = 60.0
 grow_horizontal = 0
 text = "0 Players"
 horizontal_alignment = 2
+
+[node name="ColorOverlay" type="ColorRect" parent="UI/Container"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -618.0
+offset_top = -368.0
+offset_right = 618.0
+offset_bottom = 368.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.384314)
+
+[node name="QRCode" type="TextureRect" parent="UI/Container"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -41.0
+offset_top = -52.0
+offset_right = 41.0
+offset_bottom = 30.0
+texture = ExtResource("7_uiu1w")
+
+[node name="StartText" parent="UI/Container" instance=ExtResource("4_57fa6")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.994
+anchor_right = 0.5
+anchor_bottom = 0.994
+offset_left = -160.0
+offset_top = -52.92
+offset_right = 159.0
+offset_bottom = 0.0800018
+text = ""
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Animation" type="AnimationPlayer" parent="UI/Container/StartText"]
+root_node = NodePath("../../../..")
+libraries = {
+"": SubResource("AnimationLibrary_bchgw")
+}
+autoplay = "ready"
 
 [node name="HomePlayer" parent="." instance=ExtResource("5_cvkhf")]
 position = Vector2(64, 104)

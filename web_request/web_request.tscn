@@ -10,3 +10,5 @@ script = ExtResource("1_vcl1w")
 [node name="TimeInfoRequest" type="HTTPRequest" parent="."]
 
 [node name="ReadyRequest" type="HTTPRequest" parent="."]
+
+[node name="EndRequest" type="HTTPRequest" parent="."]
