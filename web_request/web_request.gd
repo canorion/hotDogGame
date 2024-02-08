@@ -9,11 +9,11 @@ extends Node
 var player_count_req_url = "https://stadiumgames.azurewebsites.net/api/hotdog/gamestatus/"
 var time_info_req_url = "https://stadiumgames.azurewebsites.net/api/hotdog/startgame"
 var ready_request_url = "https://stadiumgames.azurewebsites.net/api/hotdog/game"
-var end_request_url = "https://stadiumgames.azurewebsites.net/api/hotdog/end"
+var end_request_url = "https://stadiumgames.azurewebsites.net/api/hotdog/endgame/"
 
 
-func request_end():
-	end_request.request(end_request_url)
+func request_end(game_id):
+	end_request.request(end_request_url + str(game_id))
 
 
 func request_ready_req():

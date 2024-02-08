@@ -12,7 +12,6 @@ var away_player_count = 0
 
 var score_timer = Timer.new()
 var ready_timer = Timer.new()
-var end_timer = Timer.new()
 
 var game_id = ""
 
@@ -32,29 +31,20 @@ func _ready():
 	add_child(ready_timer)
 	ready_timer.start()
 	
-	end_timer.wait_time = 3
-	end_timer.timeout.connect(_on_end_timer_timeout)
-	add_child(end_timer)
-	
 	$HomePlayer.init_as_home()
 	$AwayPlayer.init_as_away()
-
-
-func _on_end_timer_timeout():
-	return
-	WebRequest.request_end()
-	var req = await WebRequest.end_request.request_completed
-	var end_json = JSON.parse_string(req[3].get_string_from_utf8())
-
-	#if ready_json.data[0].has("_id"):
-	#	end_timer.stop()
 
 
 func _on_ready_timer_timeout():
 	WebRequest.request_ready_req()
 	var req = await WebRequest.ready_request.request_completed
 	var ready_json = JSON.parse_string(req[3].get_string_from_utf8())
+	
 	print(ready_json)
+	
+	if not ready_json.has("data") or ready_json.data.size() == 0:
+		return
+		
 	if ready_json.data[0].has("_id"):
 		game_id = ready_json.data[0]._id
 		ready_timer.stop()
@@ -77,6 +67,9 @@ func _on_score_timer_timeout():
 
 
 func _update_scores():
+	if game_id == "":
+		return
+	
 	WebRequest.request_player_count(game_id)
 	var req = await WebRequest.player_count_request.request_completed
 	var player_counts_json = JSON.parse_string(req[3].get_string_from_utf8())
@@ -135,9 +128,12 @@ func stop_running():
 	$Background/Animation.play("stop")
 	
 	score_timer.stop()
-	end_timer.start()
 	
 	color_overlay.visible = true
+	
+	WebRequest.request_end(game_id)
+	#var req = await WebRequest.end_request.request_completed
+	#var end_json = JSON.parse_string(req[3].get_string_from_utf8())
 
 
 func _on_run_completed():
