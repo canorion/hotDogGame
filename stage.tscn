@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://crtvg26vtmmd6"]
+[gd_scene load_steps=20 format=3 uid="uid://crtvg26vtmmd6"]
 
 [ext_resource type="Script" path="res://stage.gd" id="1_whnir"]
 [ext_resource type="Texture2D" uid="uid://cv012dshwa4pr" path="res://background.png" id="2_r1fgd"]
@@ -11,6 +11,9 @@
 [sub_resource type="AtlasTexture" id="AtlasTexture_a141y"]
 atlas = ExtResource("2_r1fgd")
 region = Rect2(0, 0, 320, 2)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tts1u"]
+load_path = "res://.godot/imported/background.png-98289422cd7d93003950872a7b97021f.ctex"
 
 [sub_resource type="Animation" id="Animation_fhu3r"]
 length = 0.001
@@ -85,6 +88,78 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(1120, 90)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../BackgroundDown1:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-480, 453)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../BackgroundDown2:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-160, 452.5)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../BackgroundDown3:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(160, 452.5)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../BackgroundDown4:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(480, 452.5)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../BackgroundDown5:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(800, 452.5)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("../BackgroundDown6:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1120, 452.5)]
 }
 
 [sub_resource type="Animation" id="Animation_2722p"]
@@ -162,6 +237,78 @@ tracks/5/keys = {
 "update": 0,
 "values": [Vector2(1120, 90), Vector2(800, 90)]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../BackgroundDown1:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-480, 453), Vector2(-800, 453)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../BackgroundDown2:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-160, 452.5), Vector2(-480, 452.5)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../BackgroundDown3:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(160, 452.5), Vector2(-160, 452.5)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../BackgroundDown4:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(480, 452.5), Vector2(160, 452.5)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../BackgroundDown5:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(800, 452.5), Vector2(480, 452.5)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("../BackgroundDown6:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1120, 452.5), Vector2(800, 452.5)]
+}
 
 [sub_resource type="Animation" id="Animation_hlvdk"]
 resource_name = "stop"
@@ -236,6 +383,78 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(1120, 90)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../BackgroundDown1:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-480, 453)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../BackgroundDown2:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-160, 452.5)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../BackgroundDown3:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(160, 452.5)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../BackgroundDown4:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(480, 452.5)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../BackgroundDown5:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(800, 452.5)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("../BackgroundDown6:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1120, 452.5)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v8p2k"]
@@ -374,6 +593,48 @@ texture = ExtResource("2_r1fgd")
 position = Vector2(319.5, -175)
 scale = Vector2(5.99688, 176)
 texture = SubResource("AtlasTexture_a141y")
+
+[node name="BackgroundDown1" type="Sprite2D" parent="Background"]
+position = Vector2(-480, 453)
+scale = Vector2(1, 28)
+texture = SubResource("CompressedTexture2D_tts1u")
+region_enabled = true
+region_rect = Rect2(0, 160, 320, 20)
+
+[node name="BackgroundDown2" type="Sprite2D" parent="Background"]
+position = Vector2(-160, 452.5)
+scale = Vector2(1, 28)
+texture = SubResource("CompressedTexture2D_tts1u")
+region_enabled = true
+region_rect = Rect2(0, 160, 320, 20)
+
+[node name="BackgroundDown3" type="Sprite2D" parent="Background"]
+position = Vector2(160, 452.5)
+scale = Vector2(1, 28)
+texture = SubResource("CompressedTexture2D_tts1u")
+region_enabled = true
+region_rect = Rect2(0, 160, 320, 20)
+
+[node name="BackgroundDown4" type="Sprite2D" parent="Background"]
+position = Vector2(480, 452.5)
+scale = Vector2(1, 28)
+texture = SubResource("CompressedTexture2D_tts1u")
+region_enabled = true
+region_rect = Rect2(0, 160, 320, 20)
+
+[node name="BackgroundDown5" type="Sprite2D" parent="Background"]
+position = Vector2(800, 452.5)
+scale = Vector2(1, 28)
+texture = SubResource("CompressedTexture2D_tts1u")
+region_enabled = true
+region_rect = Rect2(0, 160, 320, 20)
+
+[node name="BackgroundDown6" type="Sprite2D" parent="Background"]
+position = Vector2(1120, 452.5)
+scale = Vector2(1, 28)
+texture = SubResource("CompressedTexture2D_tts1u")
+region_enabled = true
+region_rect = Rect2(0, 160, 320, 20)
 
 [node name="Animation" type="AnimationPlayer" parent="Background"]
 root_node = NodePath("../Background1")
