@@ -77,13 +77,14 @@ func _update_scores():
 	var player_counts = {
 		"home": player_counts_json.playerCounts.home,
 		"away": player_counts_json.playerCounts.away,
-		"win_info": "",
+		"win_info": player_counts_json.playerCounts.winner,
 	}
 	
 	set_player_counts(player_counts.home, player_counts.away)
 	
 	if player_counts.win_info != "":
 		$UI/Container/StartText.text = str(player_counts.win_info) + " wins!"
+		score_timer.stop()
 	#else:
 		#$UI/Container/StartText.text = "Well done!"
 
@@ -127,12 +128,9 @@ func stop_running():
 	$AwayPlayer.stop_running()
 	$Background/Animation.play("stop")
 	
-	score_timer.stop()
-	
 	color_overlay.visible = true
 	
 	WebRequest.request_end(game_id)
-	#var req = await WebRequest.end_request.request_completed
 	#var end_json = JSON.parse_string(req[3].get_string_from_utf8())
 
 

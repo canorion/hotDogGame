@@ -646,6 +646,7 @@ autoplay = "stop"
 
 [node name="Music" type="AudioStreamPlayer" parent="Background"]
 stream = ExtResource("3_c1ykx")
+volume_db = -20.0
 autoplay = true
 
 [node name="Sign" type="Sprite2D" parent="Background"]
