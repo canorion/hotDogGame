@@ -137,7 +137,7 @@ body {
 
 		<script src="Hotdog Game.js"></script>
 		<script>
-const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"executable":"Hotdog Game","experimentalVK":false,"fileSizes":{"Hotdog Game.pck":3527872,"Hotdog Game.wasm":49219187},"focusCanvas":true,"gdextensionLibs":[]};
+const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"executable":"Hotdog Game","experimentalVK":false,"fileSizes":{"Hotdog Game.pck":3527920,"Hotdog Game.wasm":49219187},"focusCanvas":true,"gdextensionLibs":[]};
 const engine = new Engine(GODOT_CONFIG);
 
 (function () {
@@ -247,10 +247,12 @@ const engine = new Engine(GODOT_CONFIG);
 		<script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
 		<div class="qr-bg">
 			<h1 class="qr-text">Please scan the QR Code to get ready.</h1>
-			<div id="qrcode"></div>
-			<script type="text/javascript">
+			<div id="qrcode">
+				<img src="qrcode.png" height="300">
+			</div>
+			<!--<script type="text/javascript">
 				new QRCode(document.getElementById("qrcode"), "https://www.orioninc.com/");
-			</script>
+			</script>-->
 			<button class="qr-ready-btn">Ready</button>
 		</div>
 		<script src="game.js"></script>

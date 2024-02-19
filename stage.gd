@@ -92,16 +92,17 @@ func _update_scores():
 func _on_js_message_arrived(msg_dict):
 	if msg_dict.message == "ready":
 		$UI/Container/StartText/Animation.play("start")
+		$UI/Container/ColorOverlay.visible = false
 
 
-func _unhandled_input(event):
-	#if not OS.has_feature("pc"):
-		#return
-	if event is InputEventKey:
-		if event.pressed and event.keycode == KEY_ENTER:
-			$UI/Container/StartText/Animation.play("start")
-			#qr_code.visible = false
-			color_overlay.visible = false
+#func _unhandled_input(event):
+	##if not OS.has_feature("pc"):
+		##return
+	#if event is InputEventKey:
+		#if event.pressed and event.keycode == KEY_ENTER:
+			#$UI/Container/StartText/Animation.play("start")
+			##qr_code.visible = false
+			#color_overlay.visible = false
 
 func set_player_counts(home, away):
 	home_player_count = home
