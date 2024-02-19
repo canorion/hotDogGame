@@ -100,7 +100,7 @@ func _unhandled_input(event):
 	if event is InputEventKey:
 		if event.pressed and event.keycode == KEY_ENTER:
 			$UI/Container/StartText/Animation.play("start")
-			qr_code.visible = false
+			#qr_code.visible = false
 			color_overlay.visible = false
 
 func set_player_counts(home, away):

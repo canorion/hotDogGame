@@ -517,7 +517,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "values": [{
-"args": ["Please scan the QR Code and wait."],
+"args": [""],
 "method": &"set_start_text"
 }]
 }
@@ -727,6 +727,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.384314)
 
 [node name="QRCode" type="TextureRect" parent="UI/Container"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
